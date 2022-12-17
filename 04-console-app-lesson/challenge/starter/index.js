@@ -86,3 +86,10 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+console.log ("Number of Months in Dataset: "+ finances.length);
+//logged number of months in the datatset, which is starting point for math to follow
+//Calculate net total of profits/losses over entire period.
+//Define first elements and second elements in arrays, and group them os month and profit/losses can be called separately.
+//Average fluctuation between months. What values need to be considered that aren't already present?
+//Section off arrays absed on datatype to use math
+
