@@ -86,10 +86,89 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
-console.log ("Number of Months in Dataset: "+ finances.length);
+
+
+
+// * The total number of months included in the dataset.
+
+
+
 //logged number of months in the datatset, which is starting point for math to follow
+console.log ("Number of Months in Dataset: "+ finances.length);
+
 //Calculate net total of profits/losses over entire period.
-//Define first elements and second elements in arrays, and group them os month and profit/losses can be called separately.
+let total= 0;
+for (var i=0; i<finances.length; i++) {
+    total= total + finances[i][1];
+}
+console.log("Net Total: $" ,total)
+
+
+//object containing finances array 
+
+var financeObject= {}
+for (var i=0 ; i<finances.length; i++) {
+    var month=finances[i][0];
+    var profits= finances[i][1];
+    financeObject[month]=profits; //key(month)=property name, value(profts)= property value
+}
+
+
+//datatypes from array of arrays--> object containing arrrays, separated and defined. 
+//profits/losses:
+var allProfits= Object.values(financeObject);
+var moneyMade= 0; 
+for (var i=0; i<allProfits.length; i++) {
+    moneyMade+= allProfits[i]// instead of repeating moneyMade = moneyMade + allProfits[i]
+}
+//months:
+var months= Object.keys(financeObject);
+
+
 //Average fluctuation between months. What values need to be considered that aren't already present?
-//Section off arrays absed on datatype to use math
+var changeArray=[]
+var lastValue= 0
+for (var i=0; i<allProfits.length; i++) {
+    var currentValue= allProfits[i];
+    var monthlyChange= Math.abs(currentValue-lastValue);//makes values absolute, because difference between values is relative 
+    changeArray.push(monthlyChange);
+    lastValue= currentValue;
+}
+// * The net total amount of Profit/Losses over the entire period.
+//console.log(monthlyChange)
+
+// * The average of the **changes** in Profit/Losses over the entire period.
+//define changes between months:monthlychange
+//average that monthlyChange with months variable
+function calculateAverage(monthlyChange){
+    let average=0;
+    for (var i=0; i<monthlyChange.length; i++){
+        let eachChange= (monthlyChange[i]);
+        average+= eachChange;
+    }
+}
+console.log(calculateAverage);
+
+
+
+// * The greatest increase in profits (date and amount) over the entire period.
+
+// * The greatest decrease in losses (date and amount) over the entire period.
+
+
+
+
+
+// When you open your code in the browser your resulting analysis should look similar to the following:
+
+//   ```text
+//   Financial Analysis
+//   ----------------------------
+//   Total Months: 25
+//   Total: $2561231
+//   Average  Change: $-2315.12
+//   Greatest Increase in Profits: Feb-2012 ($1926159)
+//   Greatest Decrease in Profits: Sep-2013 ($-2196167)
+//   ```
+
 
