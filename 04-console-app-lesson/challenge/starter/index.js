@@ -134,26 +134,43 @@ for (var i=0; i<allProfits.length; i++) {
     changeArray.push(monthlyChange);
     lastValue= currentValue;
 }
-// * The net total amount of Profit/Losses over the entire period.
-//console.log(monthlyChange)
-
+// * The net total amount of Profit/Losses over the entire period.this is monthly change. to find average of thjose changes, i just divided by the .length/number of idices.
 // * The average of the **changes** in Profit/Losses over the entire period.
-//define changes between months:monthlychange
-//average that monthlyChange with months variable
-function calculateAverage(monthlyChange){
-    let average=0;
-    for (var i=0; i<monthlyChange.length; i++){
-        let eachChange= (monthlyChange[i]);
-        average+= eachChange;
-    }
-}
-console.log(calculateAverage);
+var averageChange= (monthlyChange/allProfits.length)
+console.log("Average Change: $", averageChange.toFixed(2))
+
+// console.log(monthlyChange.toFixed(2)/allProfits.length)
+// console.log(monthlyChange/allProfits.length)
+// console.log(monthlyChange/allProfits.length)
 
 
 
 // * The greatest increase in profits (date and amount) over the entire period.
 
 // * The greatest decrease in losses (date and amount) over the entire period.
+//define change as increase/decrease
+//define biggest increase
+//define biggest decrease
+//loop through changeArray and decipher increase and decrease. 
+// use comparison logic to detect whether or not next value is hgiher or lower, loop through and decide which is the biggest jump up
+
+//and the biggest fall down.
+
+//console logs the largest change, whether increase or decrease. 
+var greatestIncrease= Math.max(monthlyChange);
+console.log("Highest Change between months: $" ,greatestIncrease);
+
+
+
+
+
+//monthlychange. changeArray contains differences between values in finances. 
+//if difference= increase, difference = increase, else difference= decrease.
+//find max increase and max decrease.
+
+
+ 
+
 
 
 
