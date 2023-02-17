@@ -125,6 +125,7 @@ for (var i=0; i<allProfits.length; i++) {
 var months= Object.keys(financeObject);
 
 
+
 //Average fluctuation between months. What values need to be considered that aren't already present?
 var changeArray=[]
 var lastValue= 0
@@ -143,6 +144,7 @@ console.log("Average Change: $", averageChange.toFixed(2))
 // console.log(monthlyChange/allProfits.length)
 // console.log(monthlyChange/allProfits.length)
 
+var biggestIncrease= Math.max(changeArray);
 
 
 // * The greatest increase in profits (date and amount) over the entire period.
@@ -152,15 +154,139 @@ console.log("Average Change: $", averageChange.toFixed(2))
 //define biggest increase
 //define biggest decrease
 //loop through changeArray and decipher increase and decrease. 
-// use comparison logic to detect whether or not next value is hgiher or lower, loop through and decide which is the biggest jump up
-
-//and the biggest fall down.
+// use comparison logic to detect whether or not next value is hgiher or lower, loop through and decide which is the biggest difference
 
 //console logs the largest change, whether increase or decrease. 
-var greatestIncrease= Math.max(monthlyChange);
-console.log("Highest Change between months: $" ,greatestIncrease);
+// var greatestIncrease= Math.max(monthlyChange);
+// console.log("Highest Change between months: $" ,greatestIncrease); no, just the last value in the array. 
+
+// The greatest increase in profits (date and amount) over the entire period.
+// The greatest decrease in losses (date and amount) over the entire period.
+
+// i am using the original array of arrays, comparing the (1) indexes with are numerical datatypes. 
+//i am finding the largest increase
+//i am fiding the largest decrease
+//i am listing those alongside their (0) indexes. 
+//compare numerical values of arrays and return string value. for highest increase and highest decrease./ get key value pairs from object made before?nah 
+
+// console.log(financeObject);// obejcts consisting of key value pairs of finance array converted to object. 
+// console.log(changeArray);//array consisting of absolute values of the relative differences between values of financeObject?
+//calculate highest increase inside changeArray
+//calculate highest decrease inside changeArray
+//return index of both values. return index of corresponding object.keys
+
+// var largestProfit= Math.max(changeArray);
+// console.log("Highest Increase between months: $" ,Math.max(changeArray));
 
 
+//https://stackoverflow.com/questions/38092872/calculate-percent-change-over-multiple-dynamic-values-with-javascript
+// const values = [10000, 20000, 25000, 5000]; // values per year sorted ascending
+
+// const increases = values.map((currVal, index) => {
+//     if (index === 0) {
+//         return;
+//     }
+
+//     const prevVal = values[index - 1];
+//     return ((currVal - prevVal) / prevVal) * 100;
+// }).filter(Boolean);
+
+// console.log(increases); // [100, 25, -80] values in percent
+// function to return a list with increase (%) from year to year.
+
+var percentageChanges= changeArray.map((currVal, index)=> {
+    if (index=== 1) { //because the first value would just be finding its difference from itself if i started from 0, right?
+        return;
+    }
+    const prevVal= changeArray [index-1];
+    return((currVal- prevVal) / prevVal) *100;
+}).filter(Boolean);
+// console.log(percentageChanges);
+
+
+// find highest and lowest values in percentageChanges
+const max = Math.max(...percentageChanges);
+
+console.log("Highest increase in profits: $" + max.toFixed(2));
+
+const min = Math.min(...percentageChanges);
+console.log("Highest decrease in profits: $"+ min.toFixed(2));
+//highest increase and 
+  
+//now i need to  find the indexes that correspond to the highest and lowest values of the percentage changes, to match those to the indexs of the key value pairs in the finance object. 
+
+// var biggestIncrease=0;
+// var biggestLoss=0;
+
+// var biggestIncrease = function(percentageChanges){
+//     for (var i=0; i< percentageChanges.length; i++) {
+//         if (percentageChanges [i]>0){
+//         console.log(Math.max(percentageChanges[i]));
+//     }else if(percentageChanges [i]<0) {
+//         var biggestLoss = function (percentageChanges){
+//             for (var i=0; i< percentageChanges.length; i++) {
+//                 if (percentageChanges [i]<0){
+//                     console.log(Math.min(percentageChanges[i]));
+//                 }
+//             }
+//         }
+//     }
+//  }
+// } that did NOT work. 
+
+// var positiveArr = [];
+// var negativeArr = [];
+
+// t.forEach(function(item) {
+//   if (item < 0) {
+//     negativeArr.push(item);
+//   } else {
+//     positiveArr.push(item)
+//   }
+// });
+
+// console.log(positiveArr) // should output [5, 6, 1]
+// console.log(negativeArr)
+
+// var percentageChanges= [];
+// var positiveChanges= 0;
+// var negativeChanges= 0;
+
+// percentageChanges.forEach(function(item) {
+//     if (item < 0) {
+//         negativeChanges.push(item);
+//     }else {
+//         positiveChanges.push(item)
+//     }
+//     });
+
+//     console.log(positiveChanges);
+//     console.log(negativeChanges);
+// here i filtered the value to see if havingpositives and negatives would allow the max/min methods to work, it didnt. 
+    // const positiveChanges = percentageChanges.filter(num => num > -1);
+    // console.log(positiveChanges);
+    // var highestRise= Math.max(positiveChanges);
+
+
+    // const negativeChanges = percentageChanges.filter(num => num < -1);
+    // console.log(negativeChanges);
+    // var biggestFall= Math.min(negativeChanges);
+ 
+ 
+
+
+// Using percentage changes, find indexes of highest and lowest values (lowest will now be highest decrease, in negatives)
+//https://www.w3schools.com/jsref/jsref_findindex.asp 
+//array.findIndex(function(currentValue, index, arr), thisValue)
+
+
+
+
+
+
+
+
+//!!!!return indexes for highest and lowest values and use those values to loop through finances object/original array? to return key value pairs. !!!!!!!! but still, how to specify whether it is an increase or decrease? i dont know. - calculate percentage change, then return the indexes of the highest positive interger and highest negative integer, then console log those indexes of the finance object. 
 
 
 
