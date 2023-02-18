@@ -14,3 +14,6 @@ To acces results, open deployed webpage, open Chrome Devtools, then Console. The
 
 ## credits
  to math, you win
+
+## Deployed Webpgae
+https://anniedelgee.github.io/SonnyTrumps-lost-files/
