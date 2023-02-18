@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This was a brutal exercise in arithematic in Javascript. Javascript can be used to sort through and organise data efficiently, when i done properly.
+This was an arithematic exercise in Javascript. Javascript can be used to sort through and organise data efficiently.
 
 ## Usage
 
