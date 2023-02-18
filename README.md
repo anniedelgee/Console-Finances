@@ -10,7 +10,7 @@ To acces results, open deployed webpage, open Chrome Devtools, then Console. The
 
 ## Screenshot of console
 
-![screenshot of console]
+![screenshot of console](./04-console-app-lesson/challenge/starter/consoleScreeenshot.png)
 
 ## credits
  to math, you win
